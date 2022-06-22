@@ -1,0 +1,22 @@
+This project has 1 main.exe file which contains the main logic of detection and integrates the whole project.
+
+
+Multiple PowerShell Scripts are used to perform various tasks.
+
+1. FileWatcher.ps1 is used to create a Folder Watcher which monitors the Downloads folder. It stores the newly created .exe file in blacklist.
+2. InitBlackListScript.ps1 is used to monitor recent downloads.
+3. RegisterEvent.ps1 save the name and complete path of the recent processes in process.txt file.
+4. RegisterEventOld.ps1 contains the script which I used previously to monitor events. It does not return the path of processes that's why now I'm using RegisterEvent.ps1
+5. StartScripts.ps1 is used to start FileWatcher.ps1 and RegisterEvent.ps1 with administrative privilages.
+
+
+To see the program in action,
+
+1. Download all the files.
+2. Set Execution policy of system to unrestricted or remote signed.
+3. Unblock all .ps1 files using PowerShell's command "Unblock-File".
+4. Compile and Run main.exe as administrator.
+5. Select Monitoring option when the program runs.
+6. Download any .exe file from internet or move .exe to downloads from another folder.
+7. Run the new file.
+8. The program will block the file and ask User to "Block or Allow" its execution. If user selects Block, it will give the option to delete the file and eventually delete the file if user select that option.
